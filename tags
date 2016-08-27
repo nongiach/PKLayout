@@ -1,0 +1,109 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+CC	Makefile	/^CC       = gcc$/;"	m
+FUNCTIONS_H_	functions.h	2;"	d
+KEY_PRESSED	pklayout.h	49;"	d
+KEY_PUSHED	pklayout.h	48;"	d
+KEY_RELEASED	pklayout.h	47;"	d
+K_STATE	pklayout.h	63;"	d
+K_VALUE	pklayout.h	62;"	d
+MOD_COMSUMED	handle_key.c	6;"	d	file:
+MOD_NOT_CONSUMED	handle_key.c	4;"	d	file:
+MOD_PRESSED	handle_key.c	5;"	d	file:
+NAME	Makefile	/^NAME	= PKLayout$/;"	m
+NO_MOD	pklayout.h	51;"	d
+OBJ	Makefile	/^OBJ	= $(SRC:%.c=obj\/%.o)$/;"	m
+PKLAYOUT_H	pklayout.h	2;"	d
+REMAP_SIZE	pklayout.h	42;"	d
+SRC	Makefile	/^SRC	= init.c\\$/;"	m
+VER	Makefile	/^VER="0.01"$/;"	m
+accent_table	experience/map.h	/^struct kbdiacr accent_table[MAX_DIACR] = {$/;"	v	typeref:struct:kbdiacr
+accent_table_size	experience/map.h	/^unsigned int accent_table_size = 0;$/;"	v
+alt_map	experience/map.h	/^static unsigned short alt_map[NR_KEYS] = {$/;"	v
+altgr_ctrl_map	experience/map.h	/^static unsigned short altgr_ctrl_map[NR_KEYS] = {$/;"	v
+altgr_map	experience/map.h	/^static unsigned short altgr_map[NR_KEYS] = {$/;"	v
+black_pixel	test.c	/^unsigned long white_pixel, black_pixel; $/;"	v
+cached_combo	handle_key.c	/^t_combo *cached_combo = NULL;$/;"	v
+cached_key	handle_key.c	/^int cached_key = -1;$/;"	v
+constructKeyboard	init.c	/^constructKeyboard (char *name, struct input_id *id, unsigned long *keymask)$/;"	f
+ctrl_alt_map	experience/map.h	/^static unsigned short ctrl_alt_map[NR_KEYS] = {$/;"	v
+ctrl_disp	init.c	/^Display *ctrl_disp = NULL;$/;"	v
+ctrl_map	experience/map.h	/^static unsigned short ctrl_map[NR_KEYS] = {$/;"	v
+display	test.c	/^Display *display; $/;"	v
+find_keyboard	init.c	/^int find_keyboard(char *root, struct input_id *id) {$/;"	f
+from	pklayout.h	/^  char from[16];$/;"	m	struct:s_remap_mod_string
+from	pklayout.h	/^  int from;$/;"	m	struct:s_remap_mod
+from	pklayout.h	/^  t_combo from;$/;"	m	struct:s_remap
+from	pklayout.h	/^  t_combo_string from;$/;"	m	struct:s_remap_string
+func_buf	experience/map.h	/^char func_buf[] = {$/;"	v
+func_table	experience/map.h	/^char *func_table[MAX_NR_FUNC] = {$/;"	v
+funcbufleft	experience/map.h	/^int funcbufleft = 0;          \/* space left *\/$/;"	v
+funcbufptr	experience/map.h	/^char *funcbufptr = func_buf;$/;"	v
+funcbufsize	experience/map.h	/^int funcbufsize = sizeof(func_buf);$/;"	v
+gc	test.c	/^GC      gc; $/;"	v
+get_ev_name	key_utils.c	/^const char *get_ev_name(int ev) {$/;"	f
+get_next_event	key_utils.c	/^int get_next_event(int fd, t_event *ie, int size) {$/;"	f
+i	test.c	/^int nbre_keysym, i, minkc, maxkc, nbrekc;$/;"	v
+init	init.c	/^int init(int *keyboard_p, int *uinput_p){$/;"	f
+is_combo	handle_key.c	/^t_combo *is_combo(t_event *event) {$/;"	f
+is_mod	init.c	/^char is_mod[255] = {0};$/;"	v
+is_mod	pklayout.h	/^char is_mod[255];$/;"	v
+key	pklayout.h	/^  char key[16];$/;"	m	struct:s_combo_string
+key	pklayout.h	/^  unsigned short key;$/;"	m	struct:s_combo
+key_maps	experience/map.h	/^ushort *key_maps[MAX_NR_KEYMAPS] = {$/;"	v
+keycode	key_utils.c	/^int keycode(char *name) {$/;"	f
+keymap_count	experience/map.h	/^unsigned int keymap_count = 7;$/;"	v
+main	pklayout.c	/^int main(int argc, char *argv[])$/;"	f
+main	pklayout_sos.c	/^int main(int argc, char *argv[])$/;"	f
+main	test.c	/^main() {$/;"	f
+maxkc	test.c	/^int nbre_keysym, i, minkc, maxkc, nbrekc;$/;"	v
+minkc	test.c	/^int nbre_keysym, i, minkc, maxkc, nbrekc;$/;"	v
+mod	pklayout.h	/^  char mod[16];$/;"	m	struct:s_combo_string
+mod	pklayout.h	/^  unsigned short mod;$/;"	m	struct:s_combo
+nbr_pressed_key	handle_key.c	/^int nbr_pressed_key = 0;$/;"	v
+nbre_keysym	test.c	/^int nbre_keysym, i, minkc, maxkc, nbrekc;$/;"	v
+nbrekc	test.c	/^int nbre_keysym, i, minkc, maxkc, nbrekc;$/;"	v
+on_key_pressed	handle_key.c	/^void  on_key_pressed(int uinput, t_event *event, int nbr_event) {$/;"	f
+on_key_pushed	handle_key.c	/^void  on_key_pushed(int uinput, t_event *event, int nbr_event) {$/;"	f
+on_key_released	handle_key.c	/^void  on_key_released(int uinput, t_event *event, int nbr_event) {$/;"	f
+plain_map	experience/map.h	/^unsigned short plain_map[NR_KEYS] = {$/;"	v
+prefix	Makefile	/^prefix := \/usr\/local$/;"	m
+print_event	key_utils.c	/^void print_event(t_event *ie, int size) {$/;"	f
+remap	config.rb	/^def remap(from_key, from_mod, to_key, to_mod)$/;"	f
+remap	pklayout.h	/^t_remap remap[512];$/;"	v
+remap_mod	init.c	/^t_remap_mod remap_mod[255];$/;"	v
+remap_mod_size	config.c	/^int remap_mod_size = sizeof(remap_mod_string) \/ sizeof(t_remap_mod_string);$/;"	v
+remap_mod_string	config.c	/^t_remap_mod_string remap_mod_string[] = {$/;"	v
+remap_size	config.c	/^int remap_size = REMAP_SIZE;$/;"	v
+remap_string	config.c	/^t_remap_string remap_string[] = {$/;"	v
+root	test.c	/^Window  win, root; $/;"	v
+s_combo	pklayout.h	/^typedef struct s_combo {$/;"	s
+s_combo_string	pklayout.h	/^typedef struct s_combo_string {$/;"	s
+s_remap	pklayout.h	/^typedef struct s_remap {$/;"	s
+s_remap_mod	pklayout.h	/^typedef struct s_remap_mod {$/;"	s
+s_remap_mod_string	pklayout.h	/^typedef struct s_remap_mod_string {$/;"	s
+s_remap_string	pklayout.h	/^typedef struct s_remap_string {$/;"	s
+sbindir	Makefile	/^sbindir := $(prefix)\/bin$/;"	m
+screen	test.c	/^int     screen; $/;"	v
+send_combo	handle_key.c	/^void send_combo(int fd, t_combo *combo,$/;"	f
+send_keyevent	key_utils.c	/^void send_keyevent(int fd, int value,$/;"	f
+shift_map	experience/map.h	/^static unsigned short shift_map[NR_KEYS] = {$/;"	v
+t_combo	pklayout.h	/^} t_combo;$/;"	t	typeref:struct:s_combo
+t_combo_string	pklayout.h	/^} t_combo_string;$/;"	t	typeref:struct:s_combo_string
+t_event	pklayout.h	/^typedef struct input_event t_event;$/;"	t	typeref:struct:input_event
+t_remap	pklayout.h	/^} t_remap;$/;"	t	typeref:struct:s_remap
+t_remap_mod	pklayout.h	/^} t_remap_mod;$/;"	t	typeref:struct:s_remap_mod
+t_remap_mod_string	pklayout.h	/^} t_remap_mod_string;$/;"	t	typeref:struct:s_remap_mod_string
+t_remap_string	pklayout.h	/^} t_remap_string;$/;"	t	typeref:struct:s_remap_string
+to	pklayout.h	/^  char to[16];$/;"	m	struct:s_remap_mod_string
+to	pklayout.h	/^  int to;$/;"	m	struct:s_remap_mod
+to	pklayout.h	/^  t_combo to;$/;"	m	struct:s_remap
+to	pklayout.h	/^  t_combo_string to;$/;"	m	struct:s_remap_string
+virtual_mod	handle_key.c	/^int virtual_mod = NO_MOD;$/;"	v
+virtual_mod_consumed	handle_key.c	/^int virtual_mod_consumed = 0;$/;"	v
+white_pixel	test.c	/^unsigned long white_pixel, black_pixel; $/;"	v
+win	test.c	/^Window  win, root; $/;"	v

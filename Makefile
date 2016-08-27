@@ -1,20 +1,44 @@
 prefix := /usr/local
 sbindir := $(prefix)/bin
 
-DEBUG :=
-CFLAGS := -lX11 -O2 -Wall $(DEBUG)
-
 VER="0.01"
+	
+CC       = gcc
+CFLAGS   += -O2 -DVERSION=\"$(VER)\" -W -Wall -Wextra -Wmissing-braces
 
-all: PKLayout
+ifdef deb
+    CFLAGS += -g -Ddeb=
+endif
 
-PKLayout: pklayout.c
-	$(CC) $(CFLAGS) -DVERSION=\"$(VER)\" $< -o $@
+LDFLAGS  += -lX11
+
+NAME	= PKLayout
+
+SRC	= init.c\
+			pklayout.c\
+			key_utils.c\
+			config.c\
+			handle_key.c
+
+OBJ	= $(SRC:%.c=obj/%.o)
+
+all: $(NAME)
+
+obj/%.o : %.c
+	mkdir -p obj
+	$(CC) -c $(CFLAGS) $< -o $@ $(LDFLAGS)
+
+$(NAME):$(OBJ)
+	$(CC) -o $(NAME) $(LDFLAGS) $(OBJ) $(CFLAGS)
 
 install: all
 	install -D -m755 PKLayout $(sbindir)/PKLayout
 
-re: clean all
-
 clean:
-	rm -f *.o PKLayout
+	$(RM) $(OBJ)
+	$(RM) -r obj
+
+fclean: clean
+	$(RM) $(NAME)
+
+re: fclean all
