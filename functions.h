@@ -37,6 +37,9 @@ void s_in_combo(int uinput, t_keyboard *kb, t_event *event, int nbr_event);
 void s_wait_combo(int uinput, t_keyboard *kb, t_event *event, int nbr_event);
 void s_wait_mod(int uinput, t_keyboard *kb, t_event *event, int nbr_event);
 
+void s_wait_combo2(int uinput, t_keyboard *kb, t_event *event, int nbr_event);
+void s_in_first_combo2(int uinput, t_keyboard *kb, t_event *event, int nbr_event);
+
 // init.c
 int init(int *keyboard_p, int *uinput_p);
 

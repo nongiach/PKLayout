@@ -108,7 +108,7 @@ int init(int *keyboard_p, int *uinput_p) {
   for (int i = 0; i < remap_mod_size; ++i) {
     remap_mod[i].from = keycode(remap_mod_string[i].from);
     remap_mod[i].to = keycode(remap_mod_string[i].to);
-    is_mod[remap_mod[i].from] = 1;
+    is_mod[remap_mod[i].from] = 2;
   }
 
   unsigned long keymask[(KEY_MAX+(sizeof(unsigned long)*8)-1)/

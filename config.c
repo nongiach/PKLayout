@@ -1,8 +1,8 @@
 #include "functions.h"
 
 t_remap_mod_string remap_mod_string[] = {
-  {"a", "Shift_L"},
-  {"p", "Shift_R"},
+  {"q", "Shift_L"},
+  {"m", "Shift_R"},
   /* {"z", "Control_L"}, */
   /* {"o", "Control_R"}, */
   /* {"e", "Meta_L"}, */
@@ -31,13 +31,13 @@ t_remap_string remap_string[] = {
   {{"k", "f"}, {"XF86Launch5", "parenright"}}, // ]
   {{"f", "l"}, {"XF86Launch5", "apostrophe"}}, // {
   {{"l", "f"}, {"XF86Launch5", "equal"}}, // } 
-  {{"f", "m"}, {"", "less"}}, // <
-  {{"m", "f"}, {"Shift_L", "less"}}, // >
+  {{"f", "n"}, {"", "less"}}, // <
+  {{"n", "f"}, {"Shift_L", "less"}}, // >
 
-  {{"d", "m"}, {"", "equal"}}, // =
-  {{"m", "d"}, {"", "underscore"}}, // _
-  {{"d", "l"}, {"Shift_L", "equal"}}, // +
-  {{"l", "d"}, {"", "minus"}}, // -
+  {{"f", "u"}, {"Shift_L", "equal"}}, // +
+  {{"f", "i"}, {"", "minus"}}, // -
+  {{"f", "o"}, {"", "equal"}}, // =
+  {{"f", "p"}, {"", "underscore"}}, // _
 
   {{"s", "j"}, {"", "Left"}}, // 
   {{"s", "k"}, {"", "Down"}}, // 

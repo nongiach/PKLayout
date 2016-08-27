@@ -32,7 +32,7 @@ $(NAME):$(OBJ)
 	$(CC) -o $(NAME) $(LDFLAGS) $(OBJ) $(CFLAGS)
 
 install: all
-	install -D -m755 PKLayout $(sbindir)/PKLayout
+	install -D -m755 $(NAME) $(sbindir)/$(NAME)
 
 clean:
 	$(RM) $(OBJ)

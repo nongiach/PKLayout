@@ -65,11 +65,21 @@ void new_combo(int uinput, t_keyboard *kb, t_combo *combo, t_event *event) {
   kb->state = s_in_combo;
 }
 
+void new_combo2(t_keyboard *kb, t_combo *combo, t_event *event) {
+  printf("\tnew_combo2\n");
+  kb->combo = combo;
+  kb->key = K_VALUE;
+  kb->state = s_in_first_combo2;
+}
+
 void s_wait_mod(int uinput, t_keyboard *kb, t_event *event, int nbr_event) {
   printf("\twait_mod\n");
   if (is_mod[K_VALUE] && K_STATE == KEY_PUSHED) {
     kb->mod = K_VALUE;
-    kb->state = s_wait_combo;
+    if (is_mod[K_VALUE] == 1)
+      kb->state = s_wait_combo;
+    else
+      kb->state = s_wait_combo2;
   } else
     write(uinput, event, nbr_event * sizeof(t_event));
 }
@@ -80,9 +90,7 @@ void s_wait_combo(int uinput, t_keyboard *kb, t_event *event, int nbr_event) {
   if (K_STATE == KEY_PUSHED && (combo = is_combo(kb->mod, event)))
     new_combo(uinput, kb, combo, event);
   else {
-    //if (kb->mod == K_VALUE) {
-      send_keyevent(uinput, kb->mod, event[0].time, KEY_PUSHED);
-    /* } */
+    send_keyevent(uinput, kb->mod, event[0].time, KEY_PUSHED);
     kb->state = s_wait_mod;
     write(uinput, event, nbr_event * sizeof(t_event));
   }
@@ -101,6 +109,57 @@ void s_in_combo(int uinput, t_keyboard *kb, t_event *event, int nbr_event) {
   } else 
     write(uinput, event, nbr_event * sizeof(t_event));
 }
+
+// if mod remap then nothing in push but press/release
+
+void s_wait_combo2(int uinput, t_keyboard *kb, t_event *event, int nbr_event) {
+  printf("\twait_combo\n");
+  t_combo *combo = NULL;
+  if (K_STATE == KEY_PUSHED && (combo = is_combo(kb->mod, event)))
+    new_combo2(kb, combo, event);
+  else {
+    send_keyevent(uinput, kb->mod, event[0].time, KEY_PUSHED);
+    kb->state = s_wait_mod;
+    write(uinput, event, nbr_event * sizeof(t_event));
+  }
+}
+
+void s_in_first_combo2(int uinput, t_keyboard *kb, t_event *event, int nbr_event) {
+  printf("\tin_combo\n");
+  if (kb->mod == K_VALUE || kb->key == K_VALUE) {
+    if (K_STATE == KEY_RELEASED) {
+      if (kb->mod == K_VALUE) {
+        kb->state = s_wait_mod;
+        send_keyevent(uinput, kb->mod, event[0].time, KEY_PUSHED);
+        send_keyevent(uinput, kb->key, event[0].time, KEY_PUSHED);
+        send_keyevent(uinput, kb->mod, event[0].time, KEY_RELEASED);
+      } else {
+        kb->state = s_wait_recombo;
+        send_combo(uinput, kb->combo, event[0].time, KEY_PUSHED);
+        send_combo(uinput, kb->combo, event[0].time, K_STATE);
+      }
+    } else {
+      send_combo(uinput, kb->combo, event[0].time, KEY_PUSHED);
+      send_combo(uinput, kb->combo, event[0].time, K_STATE);
+      kb->state = s_in_combo;
+    }
+  } else 
+    write(uinput, event, nbr_event * sizeof(t_event));
+}
+
+/* void s_in_combo2(int uinput, t_keyboard *kb, t_event *event, int nbr_event) { */
+/*   printf("\tin_combo\n"); */
+/*   if (kb->mod == K_VALUE || kb->key == K_VALUE) { */
+/*     send_combo(uinput, kb->combo, event[0].time, K_STATE); */
+/*     if (K_STATE == KEY_RELEASED) { */
+/*       if (kb->mod == K_VALUE) */
+/*         kb->state = s_clean_combo; */
+/*       else */
+/*         kb->state = s_wait_recombo; */
+/*     } */
+/*   } else  */
+/*     write(uinput, event, nbr_event * sizeof(t_event)); */
+/* } */
 
 // wait the pushed key to be released
 void s_clean_combo(int uinput, t_keyboard *kb, t_event *event, int nbr_event) {
